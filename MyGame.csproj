@@ -64,6 +64,8 @@
     <Compile Include="src\GameMain.cs" />
     <Compile Include="Shape.cs" />
     <Compile Include="ShapeTests.cs" />
+    <Compile Include="Drawing.cs" />
+    <Compile Include="DrawingTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="SwinGame">

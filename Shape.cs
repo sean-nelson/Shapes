@@ -10,11 +10,9 @@ namespace MyGame
 		private Color _color;
 		private float _x, _y;
 		private int _width, _height;
+		private bool _selected;
 
-		/// <summary>
-		/// Initializes a new instance of the <see cref="MyGame.Shape"/> class.
-		/// Default 100x100 green shape at point (0,0).
-		/// </summary>
+		//Constructor
 		public Shape ()
 		{
 			_color = Color.Green;
@@ -22,12 +20,10 @@ namespace MyGame
 			_y = 0;
 			_width = 100;
 			_height = 100;
+			_selected = false;
 		}
 
-		/// <summary>
-		/// Gets or sets the color.
-		/// </summary>
-		/// <value>The color.</value>
+		//Properties/Accessors
 		public Color Color 
 		{
 			get
@@ -86,6 +82,18 @@ namespace MyGame
 			set
 			{
 				_height = value;
+			}
+		}
+
+		public bool Selected
+		{
+			get
+			{
+				return _selected;
+			}
+			set
+			{
+				_selected = value;
 			}
 		}
 
