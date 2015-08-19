@@ -38,6 +38,10 @@ namespace MyGame
 			{
 				return _background;
 			}
+			set
+			{
+				_background = value;
+			}
 		}
 			
 		//Methods
@@ -45,6 +49,18 @@ namespace MyGame
 		{
 			_shapes.Add (shape);
 		}
+
+		public void Draw()
+		{
+			SwinGame.ClearScreen(_background);
+
+			foreach (Shape s in _shapes)
+			{
+				s.Draw ();
+			}
+		}
+
+
 	}
 }
 
