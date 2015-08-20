@@ -23,6 +23,16 @@ namespace MyGame
 			_selected = false;
 		}
 
+		public Shape (Color color, float x, float y, int width, int height)
+		{
+			_color = color;
+			_x = x;
+			_y = y;
+			_width = width;
+			_height = height;
+			_selected = false;
+		}
+
 		//Properties/Accessors
 		public Color Color 
 		{
@@ -103,6 +113,11 @@ namespace MyGame
 		public void Draw ()
 		{
 			SwinGame.FillRectangle (_color, _x, _y, _width, _height);
+
+			if (_selected)
+			{
+				DrawOutline ();
+			}
 		}
 
 		//Check if a point on screen is within shape bounds
@@ -116,6 +131,11 @@ namespace MyGame
 			{
 				return false;
 			}
+		}
+
+		public void DrawOutline()
+		{
+			SwinGame.DrawRectangle(Color.Black, _x-2, _y-2, _width + 4, _height + 4);
 		}
 	}
 }

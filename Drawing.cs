@@ -43,6 +43,24 @@ namespace MyGame
 				_background = value;
 			}
 		}
+
+		public List<Shape> SelectedShapes
+		{
+			get
+			{
+				List<Shape> result = new List<Shape> ();
+
+				foreach ( Shape s in _shapes)
+				{
+					if (s.Selected)
+					{
+						result.Add(s);
+					}
+				}
+
+				return result;
+			}
+		}
 			
 		//Methods
 		public void AddShape (Shape shape)
@@ -58,9 +76,21 @@ namespace MyGame
 			{
 				s.Draw ();
 			}
+
 		}
 
+		public void SelectShapesAt (Point2D pt)
+		{
+			foreach (Shape s in _shapes)
+			{
+				s.Selected = s.IsAt (pt);
+			}
+		}
 
+		public void RemoveShape (Shape shape)
+		{
+			_shapes.Remove (shape);
+		}
 	}
 }
 

@@ -14,7 +14,9 @@ namespace MyGame
             
             //Open the game window
             SwinGame.OpenGraphicsWindow("GameMain", 800, 600);
-            SwinGame.ShowSwinGameSplashScreen();
+           // SwinGame.ShowSwinGameSplashScreen();
+
+			Drawing myDrawing = new Drawing ();
 
             //Run the game loop
             while(false == SwinGame.WindowCloseRequested())
@@ -25,8 +27,6 @@ namespace MyGame
                 //Clear the screen and draw the framerate
                 SwinGame.ClearScreen(Color.White);
 
-				Drawing myDrawing = new Drawing ();
-
 				//Change location of shape
 				if (SwinGame.MouseClicked(MouseButton.LeftButton))
 				{
@@ -36,15 +36,22 @@ namespace MyGame
 					myShape.Y = SwinGame.MouseY ();
 				}
 
+				if (SwinGame.MouseClicked (MouseButton.RightButton))
+				{
+					myDrawing.SelectShapesAt (SwinGame.MousePosition ());
+				}
+
 				//Check if mouse is within shape bounds and spacebar pressed
 				//If true change color of shape to random RGB color
 				if (SwinGame.KeyTyped(KeyCode.vk_SPACE))
 				{
 					myDrawing.BackgroundColor = SwinGame.RandomRGBColor (255);
 				}
-
+					
                 SwinGame.DrawFramerate(0,0);
-                
+
+				myDrawing.Draw ();
+
                 //Draw onto the screen
                 SwinGame.RefreshScreen();
             }
