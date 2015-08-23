@@ -63,9 +63,9 @@ namespace MyGame
 		}
 			
 		//Methods
-		public void AddShape (Shape shape)
+		public void AddShape (Shape s)
 		{
-			_shapes.Add (shape);
+			_shapes.Add (s);
 		}
 
 		public void Draw()
@@ -87,9 +87,9 @@ namespace MyGame
 			}
 		}
 
-		public void RemoveShape (Shape shape)
+		public void RemoveShape (Shape s)
 		{
-			_shapes.Remove (shape);
+			_shapes.Remove (s);
 		}
 	}
 }

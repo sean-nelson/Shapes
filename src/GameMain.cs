@@ -47,6 +47,14 @@ namespace MyGame
 				{
 					myDrawing.BackgroundColor = SwinGame.RandomRGBColor (255);
 				}
+
+				if ((SwinGame.KeyTyped (KeyCode.vk_DELETE)) || (SwinGame.KeyTyped (KeyCode.vk_BACKSPACE)))
+				{
+					foreach (Shape s in myDrawing.SelectedShapes)
+					{
+						myDrawing.RemoveShape (s);
+					}
+				}
 					
                 SwinGame.DrawFramerate(0,0);
 

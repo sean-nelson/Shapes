@@ -94,8 +94,7 @@ namespace MyGame
 
 			myDrawing.SelectShapesAt(pt);
 
-			(myDrawing.SelectedShapes, myDrawing));
-
+			Assert.IsFalse (myShape2.Selected);
 		}
 	}
 }
