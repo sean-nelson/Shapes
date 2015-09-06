@@ -7,8 +7,16 @@ namespace MyGame
 {
     public class GameMain
     {
+		private enum ShapeKind
+		{
+			Rectangle,
+			Circle
+		}
+
         public static void Main()
         {
+			ShapeKind kindToAdd = ShapeKind.Circle;
+
             //Start the audio system so sound can be played
             SwinGame.OpenAudio();
             
@@ -21,6 +29,16 @@ namespace MyGame
             //Run the game loop
             while(false == SwinGame.WindowCloseRequested())
             {
+				if (SwinGame.KeyTyped (KeyCode.vk_r))
+				{
+					kindToAdd = ShapeKind.Rectangle;
+				}
+
+				if (SwinGame.KeyTyped (KeyCode.vk_c))
+				{
+					kindToAdd = ShapeKind.Circle;
+				}
+
                 //Fetch the next batch of UI interaction
                 SwinGame.ProcessEvents();
                 
@@ -30,10 +48,23 @@ namespace MyGame
 				//Change location of shape
 				if (SwinGame.MouseClicked(MouseButton.LeftButton))
 				{
-					Shape myShape = new Shape ();
-					myDrawing.AddShape (myShape);
-					myShape.X = SwinGame.MouseX ();
-					myShape.Y = SwinGame.MouseY ();
+					Shape newShape;
+
+					if (kindToAdd == ShapeKind.Circle)
+					{
+						Circle newCircle = new Circle ();
+						newShape = newCircle;
+					}
+					else
+					{
+						Rectangle newRect = new Rectangle ();
+						newShape = newRect;
+					}
+
+					newShape.X = SwinGame.MouseX ();
+					newShape.Y = SwinGame.MouseY ();
+
+					myDrawing.AddShape (newShape);
 				}
 
 				if (SwinGame.MouseClicked (MouseButton.RightButton))

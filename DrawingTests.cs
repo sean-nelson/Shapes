@@ -47,9 +47,9 @@ namespace MyGame
 
 			Shape[] testShapes = 
 			{
-				new Shape(Color.Red, 25, 25, 50, 50),
-				new Shape(Color.Green, 25, 10, 50, 50),
-				new Shape(Color.Blue, 10, 25, 50, 50) 
+				new Rectangle(Color.Red, 25, 25, 50, 50),
+				new Rectangle(Color.Green, 25, 10, 50, 50),
+				new Rectangle(Color.Blue, 10, 25, 50, 50) 
 			};
 			
 			foreach(Shape s in testShapes) myDrawing.AddShape( s );
@@ -76,9 +76,9 @@ namespace MyGame
 		{
 			Drawing myDrawing = new Drawing ();
 
-			Shape myShape1 = new Shape (Color.Red, 100, 100, 10, 50);
-			Shape myShape2 = new Shape (Color.Green, 100, 100, 50, 50);
-			Shape myShape3 = new Shape (Color.Blue, 100, 100, 50, 10);
+			Shape myShape1 = new Rectangle (Color.Red, 100, 100, 10, 50);
+			Shape myShape2 = new Rectangle (Color.Green, 100, 100, 50, 50);
+			Shape myShape3 = new Rectangle (Color.Blue, 100, 100, 50, 10);
 
 			myDrawing.AddShape (myShape1);
 			myDrawing.AddShape (myShape2);

@@ -9,28 +9,14 @@ namespace MyGame
 	{
 		private Color _color;
 		private float _x, _y;
-		private int _width, _height;
 		private bool _selected;
 
 		//Constructor
-		public Shape ()
-		{
-			_color = Color.Green;
-			_x = 0;
-			_y = 0;
-			_width = 100;
-			_height = 100;
-			_selected = false;
-		}
+		public Shape () : this (Color.White) {}
 
-		public Shape (Color color, float x, float y, int width, int height)
+		public Shape (Color color)
 		{
 			_color = color;
-			_x = x;
-			_y = y;
-			_width = width;
-			_height = height;
-			_selected = false;
 		}
 
 		//Properties/Accessors
@@ -71,30 +57,6 @@ namespace MyGame
 			}
 		}
 
-		public int Width
-		{
-			get
-			{
-				return _width;
-			}
-			set
-			{
-				_width = value;
-			}
-		}
-
-		public int Height
-		{
-			get
-			{
-				return _height;
-			}
-			set
-			{
-				_height = value;
-			}
-		}
-
 		public bool Selected
 		{
 			get
@@ -110,32 +72,22 @@ namespace MyGame
 		//Methods
 
 		//Draws the shape
-		public void Draw ()
-		{
-			SwinGame.FillRectangle (_color, _x, _y, _width, _height);
+		public virtual void Draw () {}
 
-			if (_selected)
-			{
-				DrawOutline ();
-			}
-		}
+		public virtual void DrawOutline() {}
 
 		//Check if a point on screen is within shape bounds
-		public bool IsAt (Point2D pt)
+		public virtual bool IsAt (Point2D pt)
 		{
-			if (SwinGame.PointInRect(pt, _x, _y, _width, _height))
-			{
-				return true;
-			}
-			else
-			{
-				return false;
-			}
-		}
-
-		public void DrawOutline()
-		{
-			SwinGame.DrawRectangle(Color.Black, _x-2, _y-2, _width + 4, _height + 4);
+//			if (SwinGame.PointInRect(pt, _x, _y, _width, _height))
+//			{
+//				return true;
+//			}
+//			else
+//			{
+//				return false;
+//			}
+			return false;
 		}
 	}
 }

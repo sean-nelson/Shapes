@@ -66,6 +66,8 @@
     <Compile Include="ShapeTests.cs" />
     <Compile Include="Drawing.cs" />
     <Compile Include="DrawingTests.cs" />
+    <Compile Include="Rectangle.cs" />
+    <Compile Include="Circle.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="SwinGame">
