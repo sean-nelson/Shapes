@@ -33,8 +33,8 @@ namespace MyGame
 
 			Assert.AreEqual (0, count, "Drawing should start with no shapes");
 
-			myDrawing.AddShape (new Shape ());
-			myDrawing.AddShape (new Shape ());
+			myDrawing.AddShape (new Rectangle ());
+			myDrawing.AddShape (new Rectangle ());
 			count = myDrawing.ShapeCount;
 
 			Assert.AreEqual (2, count, "Adding two shapes should increase the count to 2");
@@ -76,9 +76,9 @@ namespace MyGame
 		{
 			Drawing myDrawing = new Drawing ();
 
-			Shape myShape1 = new Rectangle (Color.Red, 100, 100, 10, 50);
-			Shape myShape2 = new Rectangle (Color.Green, 100, 100, 50, 50);
-			Shape myShape3 = new Rectangle (Color.Blue, 100, 100, 50, 10);
+			Rectangle myShape1 = new Rectangle (Color.Red, 100, 100, 10, 50);
+			Rectangle myShape2 = new Rectangle (Color.Green, 100, 100, 50, 50);
+			Rectangle myShape3 = new Rectangle (Color.Blue, 100, 100, 50, 10);
 
 			myDrawing.AddShape (myShape1);
 			myDrawing.AddShape (myShape2);

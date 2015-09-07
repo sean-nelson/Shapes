@@ -10,7 +10,8 @@ namespace MyGame
 		private enum ShapeKind
 		{
 			Rectangle,
-			Circle
+			Circle,
+			Line
 		}
 
         public static void Main()
@@ -39,6 +40,11 @@ namespace MyGame
 					kindToAdd = ShapeKind.Circle;
 				}
 
+				if (SwinGame.KeyTyped (KeyCode.vk_l))
+				{
+					kindToAdd = ShapeKind.Line;
+				}
+
                 //Fetch the next batch of UI interaction
                 SwinGame.ProcessEvents();
                 
@@ -55,11 +61,17 @@ namespace MyGame
 						Circle newCircle = new Circle ();
 						newShape = newCircle;
 					}
-					else
+					else if (kindToAdd == ShapeKind.Rectangle)
 					{
 						Rectangle newRect = new Rectangle ();
 						newShape = newRect;
 					}
+					else
+					{
+						Line newLine = new Line ();
+						newShape = newLine;
+					}
+
 
 					newShape.X = SwinGame.MouseX ();
 					newShape.Y = SwinGame.MouseY ();

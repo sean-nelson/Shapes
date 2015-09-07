@@ -70,7 +70,7 @@ namespace MyGame
 
 		public void Draw()
 		{
-			SwinGame.ClearScreen(_background);
+			SwinGame.ClearScreen(BackgroundColor);
 
 			foreach (Shape s in _shapes)
 			{

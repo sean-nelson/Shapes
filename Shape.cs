@@ -5,7 +5,7 @@ using Color = System.Drawing.Color;
 
 namespace MyGame
 {
-	public class Shape
+	public abstract class Shape
 	{
 		private Color _color;
 		private float _x, _y;
@@ -70,25 +70,12 @@ namespace MyGame
 		}
 
 		//Methods
+		public abstract void Draw ();
 
-		//Draws the shape
-		public virtual void Draw () {}
-
-		public virtual void DrawOutline() {}
+		public abstract void DrawOutline ();
 
 		//Check if a point on screen is within shape bounds
-		public virtual bool IsAt (Point2D pt)
-		{
-//			if (SwinGame.PointInRect(pt, _x, _y, _width, _height))
-//			{
-//				return true;
-//			}
-//			else
-//			{
-//				return false;
-//			}
-			return false;
-		}
+		public abstract bool IsAt (Point2D pt);
 	}
 }
 
